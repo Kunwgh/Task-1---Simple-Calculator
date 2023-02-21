@@ -1,0 +1,622 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2707
+\cocoatextscaling1\cocoaplatform1{\fonttbl\f0\fmodern\fcharset0 CourierNewPS-BoldMT;\f1\fmodern\fcharset0 CourierNewPSMT;}
+{\colortbl;\red255\green255\blue255;\red0\green102\blue153;\red255\green255\blue255;\red53\green53\blue53;
+\red0\green0\blue0;\red0\green130\blue0;\red0\green0\blue255;\red0\green153\blue0;\red128\green128\blue128;
+}
+{\*\expandedcolortbl;;\cssrgb\c0\c40000\c60000;\cssrgb\c100000\c100000\c100000;\cssrgb\c20784\c20784\c20784;
+\cssrgb\c0\c0\c0;\cssrgb\c0\c50980\c0;\cssrgb\c0\c0\c100000;\cssrgb\c0\c60000\c0;\cssrgb\c50196\c50196\c50196;
+}
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs32 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 package
+\f1\b0 \cf4 \strokec4  \strokec5 com.example.calculator2;\strokec4 \
+\'a0\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 android.os.Bundle;\strokec4 \
+\'a0\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 com.google.android.material.snackbar.Snackbar;\strokec4 \
+\'a0\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 androidx.appcompat.app.AppCompatActivity;\strokec4 \
+\'a0\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 android.text.TextUtils;\strokec4 \
+\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 android.view.View;\strokec4 \
+\'a0\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 androidx.navigation.NavController;\strokec4 \
+\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 androidx.navigation.Navigation;\strokec4 \
+\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 androidx.navigation.ui.AppBarConfiguration;\strokec4 \
+\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 androidx.navigation.ui.NavigationUI;\strokec4 \
+\'a0\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 com.example.calculator2.databinding.ActivityMainBinding;\strokec4 \
+\'a0\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 android.view.Menu;\strokec4 \
+\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 android.view.MenuItem;\strokec4 \
+\'a0\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 android.os.Bundle;\strokec4 \
+\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 android.view.View;\strokec4 \
+\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 android.widget.EditText;\strokec4 \
+\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 android.widget.TextView;\strokec4 \
+\'a0\
+
+\f0\b \cf2 \strokec2 import
+\f1\b0 \cf4 \strokec4  \strokec5 androidx.appcompat.app.AppCompatActivity;\strokec4 \
+\'a0\
+
+\f0\b \cf2 \strokec2 public
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 class
+\f1\b0 \cf4 \strokec4  \strokec5 MainActivity 
+\f0\b \cf2 \strokec2 extends
+\f1\b0 \cf4 \strokec4  \strokec5 AppCompatActivity \{\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 private
+\f1\b0 \cf4 \strokec4  \strokec5 AppBarConfiguration appBarConfiguration;\strokec4 \
+\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 private
+\f1\b0 \cf4 \strokec4  \strokec5 ActivityMainBinding binding;\strokec4 \
+\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 public
+\f1\b0 \cf4 \strokec4  \strokec5 EditText e1, e2;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\strokec5 TextView t1;\strokec4 \
+\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 int
+\f1\b0 \cf4 \strokec4  \strokec5 num1, num2;\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 public
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 boolean
+\f1\b0 \cf4 \strokec4  \strokec5 getNumbers() \{\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 //checkAndClear();\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // defining the edit text 1 to e1\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 e1 = (EditText) findViewById(R.id.num1);\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // defining the edit text 2 to e2\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 e2 = (EditText) findViewById(R.id.num2);\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // defining the text view to t1\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 t1 = (TextView) findViewById(R.id.result);\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // taking input from text box 1\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 String s1 = e1.getText().toString();\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // taking input from text box 2\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 String s2 = e2.getText().toString();\strokec4 \
+\'a0\
+\'a0\
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 if
+\f1\b0 \cf4 \strokec5 (s1.equals(\cf7 \strokec7 "Please enter value 1"\cf4 \strokec5 ) && s2.equals(
+\f0\b \cf2 \strokec2 null
+\f1\b0 \cf4 \strokec5 ))\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 String result = \cf7 \strokec7 "Please enter value 2"\cf4 \strokec5 ;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 e2.setText(result);\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 return
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 false
+\f1\b0 \cf4 \strokec5 ;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 if
+\f1\b0 \cf4 \strokec5 (s1.equals(
+\f0\b \cf2 \strokec2 null
+\f1\b0 \cf4 \strokec5 ) && s2.equals(\cf7 \strokec7 "Please enter value 2"\cf4 \strokec5 ))\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 String result = \cf7 \strokec7 "Please enter value 1"\cf4 \strokec5 ;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 e1.setText(result);\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 return
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 false
+\f1\b0 \cf4 \strokec5 ;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 if
+\f1\b0 \cf4 \strokec5 (s1.equals(\cf7 \strokec7 "Please enter value 1"\cf4 \strokec5 ) || s2.equals(\cf7 \strokec7 "Please enter value 2"\cf4 \strokec5 ))\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 return
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 false
+\f1\b0 \cf4 \strokec5 ;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 if
+\f1\b0 \cf4 \strokec5 ((!s1.equals(
+\f0\b \cf2 \strokec2 null
+\f1\b0 \cf4 \strokec5 ) && s2.equals(
+\f0\b \cf2 \strokec2 null
+\f1\b0 \cf4 \strokec5 ))|| (!s1.equals(\cf7 \strokec7 ""\cf4 \strokec5 ) && s2.equals(\cf7 \strokec7 ""\cf4 \strokec5 )) )\{\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 String result = \cf7 \strokec7 "Please enter value 2"\cf4 \strokec5 ;\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 e2.setText(result);\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 return
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 false
+\f1\b0 \cf4 \strokec5 ;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 if
+\f1\b0 \cf4 \strokec5 ((s1.equals(
+\f0\b \cf2 \strokec2 null
+\f1\b0 \cf4 \strokec5 ) && !s2.equals(
+\f0\b \cf2 \strokec2 null
+\f1\b0 \cf4 \strokec5 ))|| (s1.equals(\cf7 \strokec7 ""\cf4 \strokec5 ) && !s2.equals(\cf7 \strokec7 ""\cf4 \strokec5 )) )\{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 //checkAndClear();\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 String result = \cf7 \strokec7 "Please enter value 1"\cf4 \strokec5 ;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 e1.setText(result);\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 return
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 false
+\f1\b0 \cf4 \strokec5 ;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 if
+\f1\b0 \cf4 \strokec5 ((s1.equals(
+\f0\b \cf2 \strokec2 null
+\f1\b0 \cf4 \strokec5 ) && s2.equals(
+\f0\b \cf2 \strokec2 null
+\f1\b0 \cf4 \strokec5 ))|| (s1.equals(\cf7 \strokec7 ""\cf4 \strokec5 ) && s2.equals(\cf7 \strokec7 ""\cf4 \strokec5 )) )\{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 //checkAndClear();\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 String result1 = \cf7 \strokec7 "Please enter value 1"\cf4 \strokec5 ;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 e1.setText(result1);\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 String result2 = \cf7 \strokec7 "Please enter value 2"\cf4 \strokec5 ;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 e2.setText(result2);\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 return
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 false
+\f1\b0 \cf4 \strokec5 ;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 else
+\f1\b0 \cf4 \strokec4  \strokec5 \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // converting string to int.\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 num1 = Integer.parseInt(s1);\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // converting string to int.\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 num2 = Integer.parseInt(s2);\strokec4 \
+\'a0\
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 return
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 true
+\f1\b0 \cf4 \strokec5 ;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 public
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 void
+\f1\b0 \cf4 \strokec4  \strokec5 doSum(View v) \{\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // get the input numbers\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 if
+\f1\b0 \cf4 \strokec4  \strokec5 (getNumbers()) \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 int
+\f1\b0 \cf4 \strokec4  \strokec5 sum = num1 + num2;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 t1.setText(Integer.toString(sum));\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 else
+\f1\b0 \cf4 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 t1.setText(\cf7 \strokec7 "Error Please enter Required Values"\cf4 \strokec5 );\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 public
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 void
+\f1\b0 \cf4 \strokec4  \strokec5 clearTextNum1(View v) \{\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // get the input numbers\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 e1.getText().clear();\strokec4 \
+\
+\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 public
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 void
+\f1\b0 \cf4 \strokec4  \strokec5 clearTextNum2(View v) \{\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // get the input numbers\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 e2.getText().clear();\strokec4 \
+\
+\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 public
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 void
+\f1\b0 \cf4 \strokec4  \strokec5 doPow(View v) \{\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 //checkAndClear();\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // get the input numbers\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 if
+\f1\b0 \cf4 \strokec4  \strokec5 (getNumbers()) \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 double
+\f1\b0 \cf4 \strokec4  \strokec5 sum = Math.pow(num1, num2);\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 t1.setText(Double.toString(sum));\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 else
+\f1\b0 \cf4 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 t1.setText(\cf7 \strokec7 "Error Please enter Required Values"\cf4 \strokec5 );\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // a public method to perform subtraction\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 public
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 void
+\f1\b0 \cf4 \strokec4  \strokec5 doSub(View v) \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 //checkAndClear();\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // get the input numbers\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 if
+\f1\b0 \cf4 \strokec4  \strokec5 (getNumbers()) \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 int
+\f1\b0 \cf4 \strokec4  \strokec5 sum = num1 - num2;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 t1.setText(Integer.toString(sum));\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 else
+\f1\b0 \cf4 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 t1.setText(\cf7 \strokec7 "Error Please enter Required Values"\cf4 \strokec5 );\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // a public method to perform multiplication\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 public
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 void
+\f1\b0 \cf4 \strokec4  \strokec5 doMul(View v) \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 //checkAndClear();\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // get the input numbers\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 if
+\f1\b0 \cf4 \strokec4  \strokec5 (getNumbers()) \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 int
+\f1\b0 \cf4 \strokec4  \strokec5 sum = num1 * num2;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 t1.setText(Integer.toString(sum));\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 else
+\f1\b0 \cf4 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 t1.setText(\cf7 \strokec7 "Error Please enter Required Values"\cf4 \strokec5 );\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // a public method to perform Division\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 public
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 void
+\f1\b0 \cf4 \strokec4  \strokec5 doDiv(View v) \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 //checkAndClear();\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // get the input numbers\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 if
+\f1\b0 \cf4 \strokec4  \strokec5 (getNumbers()) \{\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // displaying the text in text view assigned as t1\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 double
+\f1\b0 \cf4 \strokec4  \strokec5 sum = num1 / (num2 * \cf8 \cb3 \strokec8 1.0\cf4 \cb3 \strokec5 );\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 t1.setText(Double.toString(sum));\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 else
+\f1\b0 \cf4 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 t1.setText(\cf7 \strokec7 "Error Please enter Required Values"\cf4 \strokec5 );\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // a public method to perform modulus function\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 public
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 void
+\f1\b0 \cf4 \strokec4  \strokec5 doMod(View v) \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 //checkAndClear();\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // get the input numbers\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 if
+\f1\b0 \cf4 \strokec4  \strokec5 (getNumbers()) \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 double
+\f1\b0 \cf4 \strokec4  \strokec5 sum = num1 % num2;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 t1.setText(Double.toString(sum));\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 else
+\f1\b0 \cf4 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 t1.setText(\cf7 \strokec7 "Error Please enter Required Values"\cf4 \strokec5 );\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\
+\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\'a0\
+\'a0\
+\'a0\'a0\'a0\'a0\cf9 \strokec9 @Override\cf4 \strokec4 \
+\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 protected
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 void
+\f1\b0 \cf4 \strokec4  \strokec5 onCreate(Bundle savedInstanceState) \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 super
+\f1\b0 \cf4 \strokec5 .onCreate(savedInstanceState);\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 setContentView(R.layout.activity_main);\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 e1 = (EditText) findViewById(R.id.num1);\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // defining the edit text 2 to e2\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 e2 = (EditText) findViewById(R.id.num2);\strokec4 \
+\
+\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\cf9 \strokec9 @Override\cf4 \strokec4 \
+\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 public
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 boolean
+\f1\b0 \cf4 \strokec4  \strokec5 onCreateOptionsMenu(Menu menu) \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // Inflate the menu; this adds items to the action bar if it is present.\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 getMenuInflater().inflate(R.menu.menu_main, menu);\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 return
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 true
+\f1\b0 \cf4 \strokec5 ;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\cf9 \strokec9 @Override\cf4 \strokec4 \
+\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 public
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 boolean
+\f1\b0 \cf4 \strokec4  \strokec5 onOptionsItemSelected(MenuItem item) \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // Handle action bar item clicks here. The action bar will\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // automatically handle clicks on the Home/Up button, so long\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 // as you specify a parent activity in AndroidManifest.xml.\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 int
+\f1\b0 \cf4 \strokec4  \strokec5 id = item.getItemId();\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\cf6 \cb3 \strokec6 //noinspection SimplifiableIfStatement\cf4 \cb3 \strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 if
+\f1\b0 \cf4 \strokec4  \strokec5 (id == R.id.action_settings) \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 return
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 true
+\f1\b0 \cf4 \strokec5 ;\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 return
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 super
+\f1\b0 \cf4 \strokec5 .onOptionsItemSelected(item);\strokec4 \
+\
+\'a0\'a0\'a0\'a0\strokec5 \}\strokec4 \
+\'a0\
+\'a0\'a0\'a0\'a0\cf9 \strokec9 @Override\cf4 \strokec4 \
+\
+\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 public
+\f1\b0 \cf4 \strokec4  
+\f0\b \cf2 \strokec2 boolean
+\f1\b0 \cf4 \strokec4  \strokec5 onSupportNavigateUp() \{\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 NavController navController = Navigation.findNavController(
+\f0\b \cf2 \strokec2 this
+\f1\b0 \cf4 \strokec5 , R.id.nav_host_fragment_content_main);\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0
+\f0\b \cf2 \strokec2 return
+\f1\b0 \cf4 \strokec4  \strokec5 NavigationUI.navigateUp(navController, appBarConfiguration)\strokec4 \
+\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\strokec5 || 
+\f0\b \cf2 \strokec2 super
+\f1\b0 \cf4 \strokec5 .onSupportNavigateUp();}
